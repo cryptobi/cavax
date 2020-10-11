@@ -1,0 +1,12 @@
+# https://crypto.bi/cavax/    
+
+AC_INIT([cavax], [0.1])
+AC_CONFIG_SRCDIR([.])
+AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIRS([m4])
+AC_PREREQ([2.69])
+AC_CONFIG_HEADERS([config.h])
+AC_PROG_CC
+AC_CHECK_HEADERS([stdlib.h])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
