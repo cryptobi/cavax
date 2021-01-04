@@ -1,3 +1,21 @@
-cavax - A C language implementation of Avalanche AVAX Protocol
+# cavax
+
+C language utils for of [Avalanche AVAX exploration](https://crypto.bi/category/avax/).
+
+Playing with Avalanche AVAX in the C language.
+
+## License
+
+This code released under the terms of the MIT license.
+
+## Documentation 
 
 Browse cavax Documentation at https://crypto.bi/cavax/
+
+## Legal Notice
+
+Avalanche and AVAX are registered trademarks of Ava Labs Inc.
+
+*This is not an official Ava Labs project. We are in no way affiliated with Ava Labs.*
+
+This free open source software provided for Avalanche AVAX learning and exploration purposes.

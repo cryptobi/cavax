@@ -5,12 +5,9 @@
     https://crypto.bi/cavax/    
 */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/socket.h> 
-#include <arpa/inet.h>
+
 #include <openssl/ssl.h>
-#include <openssl/err.h>
+
 
 #include "connection.h"
 
@@ -19,9 +16,7 @@
     Connect a socket to host : port and return socket fd.
 */
 int cavax_connect(const char *host, uint16_t port);
-
 SSL *cavax_upgrade_connection(int fd, SSL_CTX *ssl_ctx);
-
 int cavax_connect(const char *host, uint16_t port);
 
 #endif

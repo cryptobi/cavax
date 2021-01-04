@@ -1,0 +1,35 @@
+#ifndef _Z_CAVAX_NETWORK_OPCODES
+#define _Z_CAVAX_NETWORK_OPCODES
+
+/*
+    https://crypto.bi/cavax/    
+*/
+
+#include <cavax/cavax_general.h>
+
+enum CAVAX_NETWORK_OPCODES {
+    CAVAX_OP_GETVERSION,
+    CAVAX_OP_VERSION,
+    CAVAX_OP_GETPEERLIST,
+    CAVAX_OP_PEERLIST,
+    CAVAX_OP_PING,
+    CAVAX_OP_PONG,
+    CAVAX_OP_GETACCEPTEDFRONTIER,
+    CAVAX_OP_ACCEPTEDFRONTIER,
+    CAVAX_OP_GETACCEPTED,
+    CAVAX_OP_ACCEPTED,
+    CAVAX_OP_GETANCESTORS,
+    CAVAX_OP_MULTIPUT,
+    CAVAX_OP_GET,
+    CAVAX_OP_PUT,
+    CAVAX_OP_PUSHQUERY,
+    CAVAX_OP_PULLQUERY,
+    CAVAX_OP_CHITS,
+    CAVAX_OP_LAST, // keep this at last pos. never used opcode
+};
+
+char *cavax_network_opcode_name(enum CAVAX_NETWORK_OPCODES op);
+
+#define CAVAX_NETWORK_OPCODES_COUNT (CAVAX_OP_LAST - CAVAX_OP_GETVERSION)
+
+#endif

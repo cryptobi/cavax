@@ -5,6 +5,12 @@
 #include "cavax/network/connect.h"
 #include "cavax/network/ssl.h"
 
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/socket.h> 
+#include <arpa/inet.h>
+#include <openssl/err.h>
+
 SSL *cavax_upgrade_connection(int fd, SSL_CTX *ssl_ctx) {
 
     SSL *ctx;
@@ -12,16 +18,14 @@ SSL *cavax_upgrade_connection(int fd, SSL_CTX *ssl_ctx) {
 
     ctx = SSL_new(ssl_ctx);
     
-    if ( (ret = SSL_CTX_use_certificate_file(ssl_ctx, CavaxStakingCertFile, SSL_FILETYPE_PEM)) == 1) {
-        printf("SSL_CTX_use_certificate_file %s LOADED OK\n", CavaxStakingCertFile);
-    } else {
+    if ( (ret = SSL_CTX_use_certificate_file(ssl_ctx, CavaxStakingCertFile, SSL_FILETYPE_PEM)) != 1) {
         fprintf(stderr, "ERROR: SSL_CTX_use_certificate_file %s NOT LOADED. Not PEM format?\n", CavaxStakingCertFile);
+        fprintf(stderr, "Tip: Run avalanchego once to create cert file.\n");
     }
     
-    if ( (ret = SSL_use_RSAPrivateKey_file(ctx, CavaxStakingKeyFile, SSL_FILETYPE_PEM)) == 1) {
-        printf("SSL_use_RSAPrivateKey_file %s LOADED OK\n", CavaxStakingKeyFile);
-    } else {
+    if ( (ret = SSL_use_RSAPrivateKey_file(ctx, CavaxStakingKeyFile, SSL_FILETYPE_PEM)) != 1) {
         fprintf(stderr, "ERROR: SSL_use_RSAPrivateKey_file %s NOT LOADED. Not PEM format?\n", CavaxStakingKeyFile);
+        fprintf(stderr, "Tip: Run avalanchego once to create key file.\n");
     }        
         
     ret = SSL_set_fd(ctx, fd); 

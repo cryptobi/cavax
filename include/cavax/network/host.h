@@ -5,11 +5,12 @@
     https://crypto.bi/cavax/    
 */
 
+#include "cavax/ids.h"
 
 struct cavax_host {
     char ip[22];
     uint16_t port;
-    char *id;
+    cavax_short_id_t *id;
 };
 
 

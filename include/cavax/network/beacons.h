@@ -74,6 +74,6 @@ char *cavax_beacon_ids[] = {
 #define CAVAX_BEACON_LIST_SIZE (sizeof(cavax_beacon_ips) / sizeof(cavax_beacon_ips[0]))
 
 struct cavax_host cavax_beacons[CAVAX_BEACON_LIST_SIZE];
-struct cavax_peer_connection cavax_beacon_connections[CAVAX_BEACON_LIST_SIZE];
+struct cavax_peer_connection cavax_beacon_connections[CAVAX_BEACON_LIST_SIZE]; /* Static size beacon list. */
 
 #endif

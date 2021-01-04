@@ -5,6 +5,7 @@
     https://crypto.bi/cavax/    
 */
 
+#include "cavax/network/connection.h"
 
 // constants from network/network.go
 #define defaultInitialReconnectDelay 1
@@ -23,8 +24,13 @@
 #define defaultPingPongTimeout       60
 #define defaultPingFrequency         (3 * defaultPingPongTimeout / 4)
 
+#define CAVAX_INITIAL_CONNECTION_POOL_SIZE 16
+
 void cavax_start_network();
 void cavax_network_listen();
 
+struct cavax_network {
+    struct cavax_peer_connection *connections;
+};
 
 #endif
